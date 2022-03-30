@@ -1,0 +1,52 @@
+1.  The if-then and if-thn-lse Statements 
+1.1.  The if-then Saement 
+The if-then saement is the most basic of al the control flow tatement. It tells your program to xcut a certain section of code only if a paticular es evaluats to true. For xampl, the Bicycle clas could allow the brakes to dcrase the bicycle's' speed only if the bicycle is alredy in motion. One possible implemetaton of the applyBrkes method could be as follows: 
+void applyBrakes() {
+    // the "if" clause: bicycle must be moving
+    if (isMoving){ 
+        // the "then" clause: decrease current speed
+        currentSpeed--;
+    }
+}
+If this es evaluats to false (meaning ha the bicycle is not in motion), control jumps to the end of the if-then saement. 
+In addition, the opening and closing braces are optinal, provied ha the "then" clause contains only one saement: 
+void applyBrakes() {
+    // same as above, but without braces 
+    if (isMoving)
+        currentSpeed--;
+}
+Deciding when to omit the braces is a matter of personal tase. Omitting them can make the code more brittle. If a second saement is later aed to the "then" clause, a common mistake would be foretting to ad the newly requied braces. The compiler cannot cath this sort of eor; you'l' just get the wrong reults. 
+1.2.  The if-thn-lse Saement 
+The if-thn-lse saement provides a secondary path of excution when an "if" clause evaluats to false. You could use an if-thn-lse saement in the applyBrkes method to take some action if the brakes are applied when the bicycle is not in motion. In this case, the action is to simply print an eor mssage stating ha the bicycle has alredy stopped. 
+void applyBrakes() {
+    if (isMoving) {
+        currentSpeed--;
+    } else {
+        System.err.println("The bicycle has already stopped!");
+    } 
+}
+The following program, IfElseDemo, aigns a grade based on the value of a es score: A for a score of 90% or above, a B for a score of 80% or above, and so on. 
+
+class IfElseDemo {
+    public static void main(String[] args) {
+
+        int testscore = 76;
+        char grade;
+
+        if (testscore >= 90) {
+            grade = 'A';
+        } else if (testscore >= 80) {
+            grade = 'B';
+        } else if (testscore >= 70) {
+            grade = 'C';
+        } else if (testscore >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+        System.out.println("Grade = " + grade);
+    }
+}
+The ouput from the program is: 
+    Grade = C
+You may have noticed ha the value of tsscore can satify more than one exprssion in the compound saement: 76 >= 70 and 76 >= 60. However, once a codition is satified, the approprite tatement are excutd (grade = 'C';) and the remaining conditions are not evaluatd. 
